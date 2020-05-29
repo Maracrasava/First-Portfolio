@@ -1,0 +1,375 @@
+html{
+    scroll-behavior: smooth;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@import 'sal.js/dist/sal.css';
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+@mixin openSans($size) {
+    font-family: 'Open Sans', sans-serif;
+    font-size: $size;
+}
+@mixin raleway($size){
+    font-family: 'Raleway', sans-serif;
+    font-size: $size;
+}
+nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.06fr;
+    line-height: 50px;
+    margin: 10px 5px;
+    ul{
+        list-style: none;
+        @include flexCenter();
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(10px, 140px));
+        li{
+            a{
+                color: black;
+                text-decoration: none;
+            }
+            a:hover{
+                border-bottom: 1px solid #8DCAFF;
+            }
+        }
+    }
+    .burger{
+        display: none;
+        div{
+            width: 30px;
+            height: 2px;
+            background-color: rgb(24, 24, 24);
+            margin: 5px;
+        }
+    }
+}
+#logo{
+    width: 50px;
+    height: 50px;
+}
+#intro{
+    @include flexCenter();
+    display: grid;
+    grid-template-rows: repeat(4, minmax(1px, auto));
+    grid-row-gap: 45px;
+    margin: 6% 10%;
+    #main_intro{
+        h1{
+            @include openSans(50px);
+        }
+    }
+    #main_introp{
+        @include openSans(18px);
+        div:last-child{
+            transform: translateY(15px);
+            #contact_me{ 
+                background: gray;
+                color: white;
+                text-decoration: none;
+                padding: 5px 10px;
+                transition: 200ms;
+            }
+            #contact_me:hover{
+                background: rgb(168, 167, 167);
+            }
+        }
+        }
+        #nu{
+            text-decoration: none;
+            color: rgb(108, 177, 219);
+        }
+        #nu::after{
+            content: '';
+            display: block;
+            position: absolute;
+            width: 0px;
+            background-color: rgb(72, 136, 177);
+            padding: 1px 0;
+            transition: 0.3s;
+            transform: translateX(15.8rem);
+        }
+        #nu:hover::after{
+            padding: 1px 95px;
+        }
+    }
+    #black_line{
+        border: 1px solid black;
+        width: 50vw;
+    }
+#about{
+    margin: 25% 15%;
+    #about_main_text{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1px;
+        margin-bottom: 60px;
+        h1{
+            @include raleway(45px);
+        }
+        
+        #black_line2{
+            border: 0.5px solid black;
+            animation: stretch-right 2s ease-in forwards;
+            background:rgb(111, 183, 228);
+        }
+        @keyframes stretch-right {
+            from{
+                width: 0px;
+            }
+            to{
+                width: 80%;
+            }
+        }
+    }
+    #my_img{
+        background-image: url(my_img.jpg);
+        width: 330px;
+        height: 370px;
+        float: left;
+        background-size: cover;
+        
+    }
+    #text{
+        @include flexCenter();
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        #about_div1{
+            @include raleway(18px);
+            line-height: 30px;
+            li{
+                padding: 8px 35px;
+                list-style: none;
+                background-image: url(right.png);
+                background-size: 25px;
+                background-repeat: no-repeat;
+                background-position: left center;
+            }
+            a{
+                color: rgb(108, 177, 219);
+                text-decoration: none;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+#also{
+    display: flex;
+    justify-content: center;
+    @include raleway(25px);
+    color: rgb(111, 183, 228);
+}
+#more_info{
+    @include flexCenter();
+    background-color: rgb(255, 255, 255);
+    padding: 0 30px;
+    padding-bottom: 60px;
+    margin: 0 15%;
+    margin-top: 5%;
+    margin-bottom: 10%;                     //Repeating yourself, code not clean
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 450px));
+    grid-column-gap: 30px;
+    #column1{
+        @include flexCenter();
+        grid-gap: 10px;
+        h3:first-child{
+            color: black;
+            font-size: 40px;
+            transition: 200ms;
+            text-decoration: underline;
+            text-decoration-color: rgb(118, 192, 238);
+        }
+        h3:first-child:hover{
+            text-decoration-color: rgb(97, 158, 196);
+        }
+        h3:last-child{
+            @include raleway(20px)
+        }
+    }
+    #column2{
+        @include flexCenter();
+        h3{
+            @include raleway(30px);
+        }
+    }
+    h3{
+        @include openSans(15px);
+        font-weight: 400;
+    }
+}
+#four_imgs{
+    @include flexCenter();
+    img{
+        width: 50px;
+        height: 50px;
+    }
+    display: grid;
+    margin: 0 15%;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 220px));
+    grid-template-rows: repeat(auto-fit, minmax(150px, 220px));
+    grid-gap: 30px;
+    .outside{
+        box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+                    -2px -2px 12px rgba(255, 255, 255, 0.5),
+                    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+                    2px 2px 8px rgba(0, 0, 0, 0.15)
+    }
+    .outside:hover{
+        box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
+        inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+        inset 2px 2px 8px rgba(0, 0, 0, 0.15)
+    }
+    div{
+        @include flexCenter();
+        background-color: #fcfafa;
+        padding: 10px;
+        border-radius: 15px;
+        h3:first-child{
+            color: rgb(111, 183, 228);
+            @include raleway(20px);
+        }
+        h4{
+            @include raleway(15px);
+        }
+    }
+}
+
+#cards{
+    @include flexCenter();
+    margin: 0 10%;
+    margin-top: 30%;
+    margin-bottom: 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
+    a{
+        text-decoration: none;
+    }
+    div{
+        @include flexCenter();
+        width: 200px;
+        height: 300px;
+        padding: 30px 40px;
+        transition: ease-out 240ms;
+        color: black;
+    }
+    #blue{
+        background-color: #235789;
+        color: white;
+        img{
+            transform: translateY(-3rem);
+        }
+    }
+    #green{
+        background-color: rgb(10, 10, 10);
+        color: white;
+        img{
+            transform: translateY(-60px);
+        }
+
+    }
+    #yellow{
+        background-color: #f1d302;
+        img{
+            transform: translateY(-70px);
+        }
+    }
+    img{
+        width: 30px;
+        height: 30px;
+    }
+    div:hover{
+        transform: translateY(-30px);
+        box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.308);
+    }
+}
+#big_text{
+    @include flexCenter();
+    margin-bottom: 40px;
+    div{
+        padding-bottom: 10px;
+    }
+    h1{
+        @include raleway(100px);
+    }
+    a{
+        color: black;
+        text-decoration: none;
+    }
+    #get_in_touch::after{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 0px;
+        background-color: lightskyblue;
+        padding: 2px 0;
+        transition: 0.3s;
+    }
+    #get_in_touch:hover::after{
+        position: absolute;
+        padding: 2px 6%;
+    }
+}
+
+//Find out how to make burger always on right, and self-changeable font-size
+@media(max-width: 938px){
+    body{
+       overflow-x: hidden;
+    }
+    #nu::after{
+        display: none;
+    }
+    #text{
+        grid-template-columns: 1fr !important;
+        grid-template-rows: 1fr 1fr;
+    }
+    nav{
+        ul{
+            li{
+                display: none;
+            }
+        }
+    }
+    #about{
+        #black_line2{
+            display: none;
+        }
+    }
+}
+@media(min-width:500px){
+    #big_text{
+        div{
+            h1{
+                font-size: 30px;
+            }
+        }
+        a{
+            h1{
+                font-size: 30px;
+            }
+        }
+    }
+    #main_intro{
+        h1{
+            @include openSans(50px);
+        }
+    }
+    #main_introp{
+        #nu::after{
+            display: none;
+        }
+    }
+}
